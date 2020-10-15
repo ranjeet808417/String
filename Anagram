@@ -1,0 +1,44 @@
+#include<bits/stdc++.h>
+using namespace std;
+string check_for_anagram(string s1,int l1,string s2,int l2 ){
+    if(l1!=l2){
+        return "NO";
+    }
+    int arr1[256];
+	  int arr2[256];
+	  memset(arr1,0,sizeof(arr1));
+	    memset(arr2,0,sizeof(arr2));
+	    for(int i=0;i<s1.length();i++){
+	        arr1[(int)s1[i]]++;
+	    }
+	    for(int i=0;i<s2.length();i++){
+	        arr2[(int)s2[i]]++;
+	    }
+	    
+	    for(int i=0;i<256;i++){
+	        
+	        if(arr1[i]!=arr2[i]){
+	            return "NO";
+	        }
+	    }
+	    return "YES";
+    
+    
+}
+int main()
+ {
+	//code
+	int t;
+	cin>>t;
+	while(t--){
+	    
+	  string s1;
+	  string s2;
+	 cin>>s1;
+	 cin>>s2;
+	 cout<<check_for_anagram(s1,s1.length(),s2,s2.length())<<endl;
+	  
+	}
+	
+	return 0;
+}
