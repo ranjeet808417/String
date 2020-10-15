@@ -1,0 +1,24 @@
+#include <iostream>
+#include<string>
+using namespace std;
+int main() {
+    string s;
+    getline(cin,s);
+    int arr[256];
+    memset(arr,0,sizeof(arr));
+    int n=s.length();
+    
+    for(int i=0;i<n;i++){
+            arr[(int)s[i]]++;
+    }
+
+for(int i=0;i<256;i++){
+       if(arr[i]>=1){
+        cout<<char(i)<<" "<<arr[i];
+        cout<<endl;
+       }
+}
+    
+    
+
+}
