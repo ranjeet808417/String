@@ -1,0 +1,58 @@
+#include <iostream>
+#include<string>
+using namespace std;
+int main() {
+    string s;
+    getline(cin,s);
+    int index=s.find(' ');
+    while(index!=-1){
+       s.erase(index,1);
+       index=s.find(' ');
+
+    }
+cout<<s;
+}
+/*------------
+#include <iostream>
+#include<string>
+using namespace std;
+int main() {
+    string s;
+    getline(cin,s);
+    string res="";
+    for(int i=0;i<s.length();i++){
+    if(s[i]!=' '){
+            res+=s[i];
+    }
+
+    }
+cout<<res;
+}
+---------------*/
+/* 3.------------
+#include <iostream>
+#include<string>
+using namespace std;
+int main() {
+    string s;
+    getline(cin,s);
+    int index=s.find(' ');
+    for(int i=0;i<s.length();i++){
+   if(s[i]!=' '){
+           s[index]=s[i];
+           index++;
+           s[i]=' ';
+   }
+
+
+    }
+
+    
+cout<<s;
+}
+------------*/
+
+
+
+
+
