@@ -1,0 +1,25 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+bool isrotation(string s,int l1,string p,int l2){
+if(l1!=l2){
+        return false;
+}
+string m=s+s;
+int index=-1;
+index=m.find(p);
+if(index!=-1){
+        return true;
+}
+
+        return false;
+
+
+}
+int main() {
+   string s;
+   getline(cin,s);
+   string p;
+   getline(cin,p);
+   cout<<isrotation(s,s.length(),p,p.length())<<endl;
+}
