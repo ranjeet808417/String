@@ -1,0 +1,30 @@
+#include <bits/stdc++.h>
+using namespace std;
+void permutation(string s,int i,int j,int n){
+if(i==n){
+      cout<<s<<" ";
+        return;
+}
+
+for(int k=i;k<=j;k++){
+char ss=s[i];
+s[i]=s[k];
+s[k]=ss;
+
+permutation(s,i+1,j,n);
+
+
+}
+
+}
+int main() {
+int t;
+cin>>t;
+while(t--){
+string s;
+cin>>s;
+sort(s.begin(),s.end());
+permutation(s,0,s.length()-1,s.length());
+cout<<endl;
+}
+}
