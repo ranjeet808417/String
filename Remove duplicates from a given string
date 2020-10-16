@@ -1,0 +1,71 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+void remove_duplicates(string s,int l){
+for(int i=0;i<l;i++){
+int j;
+for( j=0;j<i;j++){
+        if(s[i]==s[j]){
+                break;
+        }
+}
+if(j==i){
+        cout<<s[i];
+}
+
+}
+
+
+}
+int main() {
+   string s;
+   getline(cin,s);
+  
+   remove_duplicates(s,s.length());
+}
+/*''''''''''''' order does not preserved
+#include <bits/stdc++.h>
+
+using namespace std;
+void remove_duplicates(string s,int l){
+set<char>se;
+for(int i=0;i<l;i++){
+        se.insert(s[i]);
+}
+set<char>::iterator j;
+for(j=se.begin();j!=se.end();j++){
+        cout<<*j;
+}
+}
+int main() {
+   string s;
+   getline(cin,s);
+  
+   remove_duplicates(s,s.length());
+}
+---------------*/
+?* HASHING----*/
+
+#include <bits/stdc++.h>
+
+using namespace std;
+void remove_duplicates(string s,int l){
+int arr[256];
+memset(arr,0,sizeof(arr));
+for(int i=0;i<l;i++){
+        arr[(int)s[i]]++;
+}
+for(int i=0;i<256;i++){
+        if(arr[i]){
+                cout<<char(i);
+        }
+}
+
+}
+int main() {
+   string s;
+   getline(cin,s);
+  
+   remove_duplicates(s,s.length());
+}
+----------------*/
