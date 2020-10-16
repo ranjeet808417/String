@@ -1,0 +1,33 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+bool  is_interleaved(string& a,int l1,string& b,int l2,string& c,int l3){
+int i=0,j=0,k=0;
+while(k<l3){
+
+if(i<l1 && a[i]==c[k]){
+        i++;
+}
+else if(j<l2 && b[j]==c[k]){
+        j++;
+}
+else{
+        return false;
+}
+k++;
+}
+if(i<l1 || j<l2){
+        return false;
+}
+return true;
+
+}
+int main() {
+   string a;
+   cin>>a;
+  string b;
+   cin>>b;
+   string c;
+   cin>>c;
+   cout<<is_interleaved(a,a.length(),b,b.length(),c,c.length());
+}
