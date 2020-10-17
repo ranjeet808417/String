@@ -1,0 +1,44 @@
+#include<bits/stdc++.h>
+using namespace std;
+bool isvalid(int arr[],int k){
+
+        for(int i=0;i<256;i++){
+                if(arr[i] && arr[i]!=k){
+                        return false;
+                }
+        }
+return true;
+}
+int  smallest_windows(string s,int n,int k){
+int res=0;
+for(int i=0;i<n;i++){
+int arr[256]={0};
+
+for(int j=i;j<n;j++){
+arr[s[j]]++;
+if(arr[s[j]]>k){
+        break;
+}
+else if(isvalid(arr,k)){
+       cout<<s.substr(i,j-i+1)<<" ";
+        res++;
+}
+
+
+
+}
+
+}
+
+return res;
+}
+
+int main() {
+    
+string s;
+cin>>s;
+int k;
+cin>>k;
+cout<<smallest_windows(s,s.length(),k)<<endl;
+
+}
