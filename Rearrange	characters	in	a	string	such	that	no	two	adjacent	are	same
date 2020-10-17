@@ -1,0 +1,59 @@
+#include<bits/stdc++.h>
+using namespace std;
+struct key{
+char ch;
+int freq;
+bool operator<(const key &k) const
+    { 
+        return freq < k.freq; 
+    } 
+
+};
+string rearrange_character(string str,int length){
+string p="";
+map<char,int>m;
+for(int i=0;i<length;i++){
+m[str[i]]++;
+}
+priority_queue<key>pq;
+map<char,int>::iterator j;
+for(j=m.begin();j!=m.end();j++){
+pq.push(key{j->first,j->second});
+}
+while(pq.size()>1){
+key curr=pq.top();
+pq.pop();
+key next=pq.top();
+pq.pop();
+p+=curr.ch;
+p+=next.ch;
+curr.freq--;
+next.freq--;
+if(curr.freq>0){
+        pq.push(key{curr.ch,curr.freq});
+}
+if(next.freq>0){
+        pq.push(key{next.ch,next.freq});
+}
+
+}
+
+key x;
+if(!pq.empty()){
+x=pq.top();
+if(x.freq>1){
+        return "";
+}
+
+}
+return p+x.ch;
+
+}
+
+
+int main() {
+string s;
+cin>>s;
+cout<<rearrange_character(s,s.length());
+ return 0;   
+}
