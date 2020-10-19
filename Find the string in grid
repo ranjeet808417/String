@@ -1,0 +1,69 @@
+#include<iostream>
+using namespace std;
+bool string_count(char **mat,int i,int j,string pat,int r,int c){
+
+if(mat[i][j]!=pat[0]){
+        return false;
+}
+int row[]={0,0,+1,-1,-1,+1,-1,+1};
+int col[]={1,-1,0,0,+1,+1,-1,-1};
+for(int d=0;d<8;d++){
+int dx=i+row[d];
+int dy=j+col[d];
+int s;
+for( s=1;s<pat.length();s++){
+if (dx>= r|| dx < 0 || dy >= c || dy < 0) 
+                break; 
+
+if(mat[dx][dy]!=pat[s]){
+break;
+}
+dx+=row[d];
+dy+=col[d];
+}
+if(s==pat.length()){
+        return true;
+}
+}
+
+return false;
+}
+int main()
+ {
+	//code
+	int t;
+	cin>>t;
+	while(t--){
+	    int r,c;
+	    cin>>r>>c;
+	    char **mat=new char*[r];
+	    for(int j=0;j<r;j++){
+	        mat[j]=new char[c];
+	        
+	    }
+	    for(int i=0;i<r;i++){
+                    for(int j=0;j<c;j++){
+                            cin>>mat[i][j];
+                    }
+            }
+            string pat;
+            cin>>pat;
+            bool cc=0;
+	    for(int i=0;i<r;i++){
+                    for(int j=0;j<c;j++){
+                            if(string_count(mat,i,j,pat,r,c)){
+                                    cout<<i<<" "<<j<<","<<" ";
+                            
+                                cc=1;
+                            }
+                    }
+            }
+	   if(cc==0){
+	       cout<<"-1";
+	   }
+	    cout<<endl;
+	    
+	}
+	
+	return 0;
+}
